@@ -1,0 +1,1 @@
+cd ../../.. && source sourceme.sh && cd examples/pmsis/PULP_DECENTOR/

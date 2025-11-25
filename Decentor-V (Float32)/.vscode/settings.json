@@ -1,0 +1,19 @@
+{
+    "files.associations": {
+        "training_process.h": "c",
+        "train_data_pd.h": "c",
+        "model_parameters_pd.h": "c",
+        "nn_model.h": "c",
+        "pulp_nn_kernels.h": "c",
+        "backward_pass.h": "c",
+        "stdio.h": "c",
+        "model_parameters_car.h": "c",
+        "test_data_pd.h": "c",
+        "train_data_car.h": "c",
+        "test_data_car.h": "c",
+        "train_data_wisdm.h": "c",
+        "model_parameters_wisdm.h": "c",
+        "test_data_wisdm.h": "c",
+        "cmath": "c"
+    }
+}

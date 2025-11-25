@@ -1,0 +1,7 @@
+se der printf com variaveis la dentro da undifined skbr. Soluçao: Incluir o pmsis.h nesse ficheiro.
+
+para flashar o ficheiro: 1º na pasta do codigo dar "make all" para flashar a imagem, 2º dar run
+
+com o freertos fica preso em em pi_fs_mount() com pulpos nao
+
+para usar o pulos tem de se remover do make file a flag "-lc"

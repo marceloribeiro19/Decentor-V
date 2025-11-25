@@ -1,0 +1,44 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "GAP8 Launch Debugger",
+    "type": "cppdbg",
+    "targetArchitecture": "ARM",  // Set to RISC-V architecture
+    "request": "launch",
+    "program": "/home/marcelo/Desktop/Gap8/gap_sdk/examples/gap8/basic/PULP_DECENTOR/BUILD/GAP8/GCC_RISCV_FREERTOS/test.elf",  // Path to your GAP8 ELF file
+    "cwd": "/home/marcelo/Desktop/Gap8/gap_sdk/examples/gap8/basic/PULP_DECENTOR/BUILD/GAP8/GCC_RISCV_FREERTOS",  // Working directory
+    "miDebuggerPath": "/opt/riscv/bin/riscv32-unknown-elf-gdb",  // Path to the RISC-V GDB
+    "args": [],  // No additional arguments by default
+    "stopAtEntry": true,  // Stop at the entry point of the program
+    "environment": [],
+    "externalConsole": true,  // Use an external console for debug output
+    "MIMode": "gdb",  // Use GDB for debugging
+    "miDebuggerServerAddress": "localhost:3333",  // GDB server address
+    "customLaunchSetupCommands": [
+        { 
+            "text": "file /home/marcelo/Desktop/Gap8/gap_sdk/examples/gap8/basic/PULP_DECENTOR/BUILD/GAP8/GCC_RISCV_FREERTOS/test.elf", 
+            "description": "Loading ELF file into GDB" 
+        },
+        { 
+            "text": "target remote :3333", 
+            "description": "Connecting to the target via GDB" 
+        },
+        { 
+            "text": "load", 
+            "description": "Load the ELF file into the target" 
+        }
+    ],
+    "launchCompleteCommand": "None",  // No special command after launch
+    "debugServerArgs": "-f ${workspaceFolder}/tb/debug/gapuino.cfg",  // Debug server configuration file for GAP8
+    "logging": { "engineLogging": true },  // Enable logging for the debugging engine
+    "preLaunchTask": "prebuild-setup",  // Custom pre-launch task if needed, e.g., building or setting up environment
+    "linux": {
+        "MIMode": "gdb",
+        "miDebuggerPath": "/opt/riscv/bin/riscv32-unknown-elf-gdb",  // Same GDB path on Linux
+        "debugServerPath": "openocd"  // Use OpenOCD for debugging
+    }
+      }
+    ]
+  }
+  

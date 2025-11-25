@@ -1,0 +1,32 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "prebuild-setup",
+        "type": "shell",
+        "command": "bash",
+        "args": [
+          "-c",
+          "cd ../../../.. && source configs/gapuino.sh && cd examples/gap8/basic/PULP_DECENTOR/"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "problemMatcher": [],
+        "detail": "Pre-build setup task"
+      },
+      {
+        "label": "build",
+        "type": "shell",
+        "command": "make clean all run PMSIS_OS=freertos platform=board",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": ["$gcc"],
+        "detail": "Build the GAP8 firmware"
+      }
+    ]
+  }
+  
