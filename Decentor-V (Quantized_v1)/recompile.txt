@@ -1,0 +1,3 @@
+cd ../../.. && source sourceme.sh && cd examples/pmsis/DecentorOptimized/
+
+make clean all run platform=board PMSIS_OS=pulpos io=uart

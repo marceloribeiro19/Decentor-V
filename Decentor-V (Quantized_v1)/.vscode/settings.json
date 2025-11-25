@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "car_data_file.h": "c",
+        "functional": "c",
+        "pulp_nn.h": "c",
+        "random": "c",
+        "quantization.h": "c",
+        "faster_math.h": "c",
+        "cogdist_data_file.h": "c",
+        "ranges": "c"
+    }
+}
