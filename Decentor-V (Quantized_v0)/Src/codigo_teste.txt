@@ -1,0 +1,49 @@
+#include "pmsis.h"
+#include "bsp/fs.h"
+#include "bsp/fs/readfs.h"
+#include "bsp/flash/hyperflash.h"
+#include "stdio.h"
+#include "pulp_nn_kernels.h"
+
+
+#define CHANNELS  3     // Número de canais da imagem de entrada
+#define HEIGHT    4     // Altura da imagem de entrada
+#define WIDTH     4     // Largura da imagem de entrada
+
+
+int main() {
+    int n_cores = NUM_CORES;
+    printf("Num cores: %d \n", n_cores);
+
+    // Alocação de memória para as imagens de entrada e saída
+    uint8_t Im_in_1[CHANNELS * HEIGHT * WIDTH];
+    uint8_t Im_in_2[CHANNELS * HEIGHT * WIDTH];
+    uint8_t Im_out[CHANNELS * HEIGHT * WIDTH];
+
+    // Inicialização das imagens de entrada com valores de teste (exemplo simples)
+    for (int i = 0; i < CHANNELS * HEIGHT * WIDTH; i++) {
+        
+        Im_in_1[i] = i;         // Imagem 1: valores simples 0, 1, 2, ...
+        Im_in_2[i] = i + 1;     // Imagem 2: valores simples 1, 2, 3, ...
+    }
+
+    // Parâmetros de requantização (valores de exemplo)
+    uint16_t out_mult1 = 1;   
+    uint16_t out_mult2 = 1;   
+    uint16_t out_shift = 0;   
+
+    pulp_nn_add(Im_in_1, Im_in_2, CHANNELS, HEIGHT, WIDTH, Im_out, out_mult1, out_mult2, out_shift);
+
+    for (int c = 0; c < CHANNELS; c++) {
+        printf("Channel %d:\n", c);
+        for (int h = 0; h < HEIGHT; h++) {
+            for (int w = 0; w < WIDTH; w++) {
+                printf("%d ", Im_out[c * HEIGHT * WIDTH + h * WIDTH + w]);
+            }
+            printf("\n");
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
